@@ -31,12 +31,6 @@ FusionEKF::FusionEKF() {
         0, 0.0009, 0,
         0, 0, 0.09;
 
-  /**
-  TODONE:
-    * Finish initializing the FusionEKF.
-    * Set the process and measurement noises
-  */
-
   //state covariance matrix P
   MatrixXd P_init = MatrixXd(4, 4);
   P_init << 1, 0, 0, 0,
@@ -88,7 +82,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
    ****************************************************************************/
   if (!is_initialized_) {
     /**
-    TODO:
       * Initialize the state ekf_.x_ with the first measurement.
       * Create the covariance matrix.
       * Remember: you'll need to convert radar from polar to cartesian coordinates.
@@ -130,7 +123,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
    ****************************************************************************/
 
   /**
-   TODONE:
      * Update the state transition matrix F according to the new elapsed time.
       - Time is measured in seconds.
      * Update the process noise covariance matrix.
@@ -164,7 +156,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
    ****************************************************************************/
 
   /**
-   TODONE:
      * Use the sensor type to perform the update step.
      * Update the state and covariance matrices.
    */

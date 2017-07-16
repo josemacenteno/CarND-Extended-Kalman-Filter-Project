@@ -42,9 +42,6 @@ void KalmanFilter::Update(const VectorXd &z) {
 }
 
 void KalmanFilter::UpdateEKF(const VectorXd &z) {
-  //TODO: Replace KF with EKF
-
-  //VectorXd z_pred = H_ * x_;
   float px = x_[0];
   float py = x_[1];
   float vx = x_[2];
@@ -58,6 +55,8 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 
   VectorXd y = z - x_polar;
   
+
+  // Make Theta small, between -pi and pi
   const double pi = 3.1415926535897;
 
   while (y[1] > pi){
@@ -66,8 +65,8 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   while (y[1] < -1.0*pi){
     y[1] = y[1] + 2.0*pi;
   }
-  //std::cout<<"y = "<<y[1]<<std::endl;
 
+  //Follow Kalaman equations
   MatrixXd Ht = H_.transpose();
   MatrixXd S = H_ * P_ * Ht + R_;
   MatrixXd Si = S.inverse();

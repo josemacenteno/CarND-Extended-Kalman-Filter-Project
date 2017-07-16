@@ -37,8 +37,8 @@ private:
 
   // previous timestamp
   long long previous_timestamp_;
-  
-    //acceleration noise components
+
+  //acceleration noise components
   float noise_ax;
   float noise_ay;
 
